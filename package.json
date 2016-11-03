@@ -21,13 +21,21 @@
   },
   "homepage": "https://github.com/sigaostudiosllc/angular-nps#readme",
   "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-mocks": "^1.5.8",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "latest",
     "gulp-concat": "^2.6.0",
-    "gulp-minify": "0.0.12",
-    "gulp-watch": "^4.3.9",
     "gulp-less": "^3.1.0",
     "gulp-lesshint": "^2.0.0",
-    "gulp-load-plugins": "^1.2.4"
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-minify": "0.0.12",
+    "gulp-watch": "^4.3.9",
+    "jasmine": "^2.5.2",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2"
   }
 }
