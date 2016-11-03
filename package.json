@@ -1,0 +1,33 @@
+{
+  "name": "angular-nps",
+  "version": "1.0.0",
+  "description": "Angular Net Promoter Score feedback form.",
+  "main": "index.js",
+  "private": true,
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sigaostudiosllc/angular-nps.git"
+  },
+  "author": "Sigao Studios, LLC.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sigaostudiosllc/angular-nps/issues"
+  },
+  "homepage": "https://github.com/sigaostudiosllc/angular-nps#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "latest",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify": "0.0.12",
+    "gulp-watch": "^4.3.9",
+    "gulp-less": "^3.1.0",
+    "gulp-lesshint": "^2.0.0",
+    "gulp-load-plugins": "^1.2.4"
+  }
+}
