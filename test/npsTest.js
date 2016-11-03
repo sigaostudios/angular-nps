@@ -1,9 +1,13 @@
 (function () {
     'use strict';
-    angular.module('npsTest', [])
-        .controller('test', Test);
+    angular.module('npsTest', ['angular-nps'])
+        .controller('Test', Test);
 
     function Test() {
+        var vm = {
+            foo: 'bar'
+        };
 
+        return vm;
     }
 })();
