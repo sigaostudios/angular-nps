@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('angular-nps', [])
+    angular.module('angular-nps')
         .directive('npsForm', NpsForm);
 
     function NpsForm() {

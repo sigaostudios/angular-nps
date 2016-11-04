@@ -23,6 +23,7 @@ gulp.task('less', function() {
 
 gulp.task('js', function() {
     gulp.src(path.src +'*.js')
+        .pipe(plugins.concat('angular-nps.js'))
         .pipe(plugins.minify({
             ext: {
                 src: '.js',
