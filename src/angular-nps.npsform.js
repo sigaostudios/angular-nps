@@ -1,14 +1,49 @@
-(function() {
-    'use strict';
 
-    angular.module('angular-nps')
-        .directive('npsForm', NpsForm);
+(function () {
 
-    function NpsForm() {
-        return  {
+
+
+    angular.module('angular-nps', [])
+        .directive('npsForm', npsDirective)
+        .controller('npsController', npsController);
+
+    function npsDirective() {
+        return {
+            controller: "npsController as vm",
             restrict: 'E',
-            replace: true,
-            template: '<span><p>How likely are you to recommend us to a friend or colleague?</p><input type="radio" name="nps" value="0">0<input type="radio" name="nps" value="1">1<input type="radio" name="nps" value="2">2<input type="radio" name="nps" value="3">3<input type="radio" name="nps" value="4">4<input type="radio" name="nps" value="5">5<input type="radio" name="nps" value="6">6<input type="radio" name="nps" value="7">7<input type="radio" name="nps" value="8">8<input type="radio" name="nps" value="9">9<input type="radio" name="nps" value="10">10<button>Submit Score</button></span>'
+            templateUrl: '../src/npsForm.html'
         };
     }
+
+    npsController.$inject = ['$scope', '$element', '$attrs'];
+
+    function npsController($scope, $element, $attrs) {
+
+        //place data-config="" in the tag to pass data into this controller
+        //use $attrs.config to use passed attributes
+
+        var vm = {
+            showRating: true,
+            showComments: false,
+            showTest: false,
+            submit: submit,
+            npsRating: null
+        }
+
+        Activate();
+
+        return vm;
+
+        function Activate() {
+
+            console.log('Activated');
+        }
+
+        function submit() {
+            console.log(vm.npsRating);
+        }
+    }
+
+
+
 })();

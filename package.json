@@ -8,6 +8,7 @@
     "test": "test"
   },
   "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,6 +32,7 @@
     "gulp-load-plugins": "^1.2.4",
     "gulp-minify": "0.0.12",
     "gulp-watch": "^4.3.9",
+    "http-server": "^0.9.0",
     "jasmine": "^2.5.2",
     "jasmine-core": "^2.5.2",
     "karma": "^1.3.0",
