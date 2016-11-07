@@ -33,4 +33,10 @@ gulp.task('js', function() {
         .pipe(gulp.dest(path.js));
 });
 
+gulp.task('watch', function() {
+    return plugins.watch(path.src+'**/*.*', function() {
+        gulp.start('default');
+    });        
+});
+
 gulp.task('default', ['less', 'js']);
