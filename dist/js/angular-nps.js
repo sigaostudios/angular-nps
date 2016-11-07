@@ -12,20 +12,20 @@
     function $NpsApi($http, $q) {
         var api = {
             saveScore: saveScore,
+            saveScoreToGA: saveScoreToGA,
             test: test,
-            apiBase: '/sigaoapi/nps'
+            apiBase: '/sigaoapi/nps',
+            dimensionName: 'NPS SigaoStudios'
         };
 
         return api;
 
         function test() {
             return $http.get(api.apiBase)
-                .then(function (data) {
-                    console.log(data.data);
+                .then(function (data) {                    
                     return data.data;
                 }, function (error) {
-
-                    return error;
+                    return error.data;
                 });
         }
 
@@ -33,10 +33,16 @@
             return $http.post(api.apiBase, score)
                 .then(function (data) {
                     return data.data;
-                }, function (error) {
-                    console.log(error.data);
+                }, function (error) {                    
                     return error.data;
                 });
+        }
+
+        function saveScoreToGA(score) {
+            var gaScore = {};
+            gaScore[api.dimensionName] = score.score;
+            ga('send', 'user', gaScore);
+            return "Success!";
         }
     }
 
