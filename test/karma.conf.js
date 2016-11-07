@@ -17,7 +17,8 @@ module.exports = function(config) {
     files: [
       '../node_modules/angular/angular.js',
       '../node_modules/angular-mocks/angular-mocks.js',
-      '../dist/js/angular-nps.js',
+      '../node_modules/sinon/pkg/sinon.js',      
+      '../dist/js/angular-nps.js',      
       'spec/**/*Spec.js'
     ],
 
