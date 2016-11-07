@@ -11,7 +11,7 @@
         return {
             controller: "npsController as vm",
             restrict: 'E',
-            templateUrl: '../src/npsForm.html'
+            templateUrl: 'npsForm.html'
         };
     }
 
