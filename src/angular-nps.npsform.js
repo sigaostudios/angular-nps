@@ -1,9 +1,6 @@
 
 (function () {
-
-
-
-    angular.module('angular-nps', [])
+    angular.module('angular-nps')
         .directive('npsForm', npsDirective)
         .controller('npsController', npsController);
 
@@ -15,9 +12,9 @@
         };
     }
 
-    npsController.$inject = ['$scope', '$element', '$attrs'];
+    npsController.$inject = ['$scope', '$element', '$attrs', '$npsapi'];
 
-    function npsController($scope, $element, $attrs) {
+    function npsController($scope, $element, $attrs, $npsapi) {
 
         //place data-config="" in the tag to pass data into this controller
         //use $attrs.config to use passed attributes
@@ -35,12 +32,13 @@
         return vm;
 
         function Activate() {
-
             console.log('Activated');
         }
 
         function submit() {
-            console.log(vm.npsRating);
+            if(npsRating){
+                $npsapi.saveScore(vm.npsRating);
+            }        
         }
     }
 

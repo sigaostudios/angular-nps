@@ -42,7 +42,6 @@ gulp.task('watch', function () {
 });
 
 gulp.task('templates', function () {
-    console.log(plugins);
     return gulp.src("./src/partial/*.html")
         .pipe(plugins.ngHtml2js({
             moduleName: "angular-nps"
