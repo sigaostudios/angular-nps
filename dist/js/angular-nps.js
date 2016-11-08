@@ -91,6 +91,7 @@
 
             if(vm.npsRating){
                 $npsapi.saveScore(vm.npsRating);
+                $npsapi.saveScoreToGA(vm.npsRating);
             }        
         }
     }
