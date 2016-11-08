@@ -1,0 +1,111 @@
+.nps-flex-outer{
+  padding: 40px 20px 20px;
+  font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+  background: #3AAFAB;
+  color: #fff;
+   max-width: 800px;
+  margin: 0 auto;
+}
+.nps-flex-inner {
+   
+  list-style-type: none;
+  padding: 0;
+}
+
+
+.nps-flex-outer li,
+.nps-flex-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  /* You can set flex-wrap and flex-direction individually */
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.nps-flex-inner {
+  padding: 0 8px;
+  justify-content: space-between;  
+}
+
+.nps-flex-outer > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.nps-flex-outer li label,
+.nps-flex-outer li p {
+  padding: 8px;
+  font-weight: 300;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.nps-flex-outer > li > label:not([type='radio']),
+.nps-flex-outer li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.nps-flex-outer div{
+ 
+ margin-top:20px;
+}
+.nps-flex-inner {
+  flex: 1 0 220px;
+}
+
+.nps-flex-outer li p {
+  margin: 0;
+}
+
+.nps-flex-outer li input:not([type='checkbox']),
+.nps-flex-outer li textarea {
+      color:black;
+  padding: 15px;
+  border: none;
+}
+
+.nps-flex-outer li button {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  background: #333;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  border-radius: 2px;
+}
+
+.nps-flex-outer li button { 
+    outline: none;
+}
+
+.nps-flex-outer li button:hover {
+    opacity:.8;
+    outline: none;
+}
+
+.nps-flex-inner li {
+
+  width: 100px;
+}
+.nps-flex-radio label {
+   float: left;
+    padding: 0 1em;
+    text-align: center;
+    margin-left:5px;
+    margin-right:5px;
+
+}
+.nps-flex-radio input {
+  width:15px;
+  height:15px;
+  margin-left:3px;
+ 
+}

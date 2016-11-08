@@ -1,6 +1,8 @@
 var gulp = require('gulp');
+// var ngHtml2Js = require("gulp-ng-html2js");
+// var minifyHtml = require("gulp-minify-html");
 var plugins = require("gulp-load-plugins")({
-    pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
+    pattern: ['gulp-*', 'gulp.*', 'main-bower-files', 'gulp-ng-html2js', 'gulp-minify-html'],
     replaceString: /\bgulp[\-.]/
 });
 var path = {
@@ -10,7 +12,7 @@ var path = {
     js: 'dist/js/'
 };
 
-gulp.task('less', function() {
+gulp.task('less', function () {
     gulp.src(path.src + 'angular-nps.less')
         .pipe(plugins.less())
         .pipe(plugins.autoprefixer({
@@ -21,8 +23,8 @@ gulp.task('less', function() {
         .pipe(gulp.dest(path.css));
 });
 
-gulp.task('js', function() {
-    gulp.src(path.src +'*.js')
+gulp.task('js',['templates'], function () {
+    gulp.src(path.src + '*.js')
         .pipe(plugins.concat('angular-nps.js'))
         .pipe(plugins.minify({
             ext: {
@@ -33,10 +35,21 @@ gulp.task('js', function() {
         .pipe(gulp.dest(path.js));
 });
 
-gulp.task('watch', function() {
-    return plugins.watch(path.src+'**/*.*', function() {
+gulp.task('watch', function () {
+    return plugins.watch(path.src + '**/*.*', function () {
         gulp.start('default');
-    });        
+    });
 });
+
+gulp.task('templates', function () {
+    return gulp.src("./src/partial/*.html")
+        .pipe(plugins.ngHtml2js({
+            moduleName: "angular-nps"
+           
+        }))
+        .pipe(plugins.concat("angular-nps.template.js"))
+        .pipe(gulp.dest("./src"));
+});
+
 
 gulp.task('default', ['less', 'js']);

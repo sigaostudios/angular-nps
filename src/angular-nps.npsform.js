@@ -1,14 +1,57 @@
+
 (function() {
-    'use strict';
-
     angular.module('angular-nps')
-        .directive('npsForm', NpsForm);
+        .directive('npsForm', NpsDirective)
+        .controller('npsController', NpsController);
 
-    function NpsForm() {
-        return  {
+    function NpsDirective() {
+        return {
+            controller: "npsController as vm",
             restrict: 'E',
-            replace: true,
-            template: '<span><p>How likely are you to recommend us to a friend or colleague?</p><input type="radio" name="nps" value="0">0<input type="radio" name="nps" value="1">1<input type="radio" name="nps" value="2">2<input type="radio" name="nps" value="3">3<input type="radio" name="nps" value="4">4<input type="radio" name="nps" value="5">5<input type="radio" name="nps" value="6">6<input type="radio" name="nps" value="7">7<input type="radio" name="nps" value="8">8<input type="radio" name="nps" value="9">9<input type="radio" name="nps" value="10">10<button>Submit Score</button></span>'
+            templateUrl: 'npsForm.html'
         };
+    }
+
+    NpsController.$inject = ['$scope', '$element', '$attrs', '$npsapi'];
+
+    function NpsController($scope, $element, $attrs, $npsapi) {
+
+        var vm = {
+            style: {
+                backGround: $attrs.backgroundcolor,
+                buttonColor: $attrs.buttoncolor,
+                buttonTextColor: $attrs.buttontextcolor
+            },
+            userName: $attrs.username || null,
+            GA: $attrs.ga || false,
+            showRating: true,
+            showComments: false,
+            showTest: false,
+            submit: submit,
+            npsRating: null
+        }
+
+        Activate();
+
+        return vm;
+
+        function Activate() {
+            console.log('Activated');
+        }
+
+        function submit() {
+            if (vm.npsRating) {
+                var data = {
+                    UserName: vm.userName,
+                    score: vm.npsRating
+                };
+     
+                $npsapi.saveScore(data);
+
+                if (vm.GA) {         
+                    $npsapi.saveScoreToGA(data);
+                }
+            }
+        }
     }
 })();
