@@ -18,15 +18,18 @@
 
         //place data-config="" in the tag to pass data into this controller
         //use $attrs.config to use passed attributes
-
         var vm = {
+            style: {
+                background: $attrs.backgroundcolor,
+                buttonColor: $attrs.buttoncolor,              
+            },
             showRating: true,
             showComments: false,
             showTest: false,
             submit: submit,
             npsRating: null
         }
-
+ 
         Activate();
 
         return vm;
@@ -36,7 +39,8 @@
         }
 
         function submit() {
-            if(npsRating){
+
+            if(vm.npsRating){
                 $npsapi.saveScore(vm.npsRating);
             }        
         }

@@ -1,25 +1,28 @@
 .flex-outer {
-  padding: 50px 20px;
+  padding: 40px 20px 20px;
   font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
   background: #3AAFAB;
   color: #fff;
+  max-width: 800px;
+  margin: 0 auto;
 }
 .flex-inner {
   list-style-type: none;
   padding: 0;
 }
-.flex-outer {
-  max-width: 800px;
-  margin: 0 auto;
-}
 .flex-outer li,
 .flex-inner {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   -ms-flex-align: center;
   align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  /* You can set flex-wrap and flex-direction individually */
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .flex-inner {
   padding: 0 8px;
@@ -42,7 +45,9 @@
   flex: 1 0 120px;
   max-width: 220px;
 }
-.flex-outer > li > label + *,
+.flex-outer div {
+  margin-top: 20px;
+}
 .flex-inner {
   -ms-flex: 1 0 220px;
   flex: 1 0 220px;
@@ -72,7 +77,15 @@
 .flex-inner li {
   width: 100px;
 }
+.flex-radio label {
+  float: left;
+  padding: 0 1em;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
 .flex-radio input {
-  -ms-flex: 1 0 10%;
-  flex: 1 0 10%;
+  width: 15px;
+  height: 15px;
+  margin-left: 3px;
 }
