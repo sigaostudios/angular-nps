@@ -6,14 +6,14 @@
     function Test($scope) {
         var vm = {
             foo: 'bar',
-            submit: submit
+            submit2: submit2
         };
        $scope.child ={}; 
 
     
         return vm;
 
-       function submit(){
+       function submit2(){
            $scope.child.submit();
        }
 
