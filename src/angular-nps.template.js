@@ -11,7 +11,7 @@ module.run(['$templateCache', function($templateCache) {
     '\n' +
     '        <!--Radio Buttons-->\n' +
     '        <li ng-show="vm.showRating">\n' +
-    '            <div> How likely are you to recommend this website to a friend?</div>\n' +
+    '            <div>How likely are you to recommend us to a friend or colleague?</div>\n' +
     '\n' +
     '            <div name="rating" class="flex-radio">\n' +
     '                <label for="10">10</br>\n' +
