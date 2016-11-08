@@ -1,4 +1,4 @@
-.flex-outer {
+.nps-flex-outer {
   padding: 40px 20px 20px;
   font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
   background: #3AAFAB;
@@ -6,12 +6,12 @@
   max-width: 800px;
   margin: 0 auto;
 }
-.flex-inner {
+.nps-flex-inner {
   list-style-type: none;
   padding: 0;
 }
-.flex-outer li,
-.flex-inner {
+.nps-flex-outer li,
+.nps-flex-inner {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
@@ -24,44 +24,44 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-.flex-inner {
+.nps-flex-inner {
   padding: 0 8px;
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-.flex-outer > li:not(:last-child) {
+.nps-flex-outer > li:not(:last-child) {
   margin-bottom: 20px;
 }
-.flex-outer li label,
-.flex-outer li p {
+.nps-flex-outer li label,
+.nps-flex-outer li p {
   padding: 8px;
   font-weight: 300;
   letter-spacing: .09em;
   text-transform: uppercase;
 }
-.flex-outer > li > label:not([type='radio']),
-.flex-outer li p {
+.nps-flex-outer > li > label:not([type='radio']),
+.nps-flex-outer li p {
   -ms-flex: 1 0 120px;
   flex: 1 0 120px;
   max-width: 220px;
 }
-.flex-outer div {
+.nps-flex-outer div {
   margin-top: 20px;
 }
-.flex-inner {
+.nps-flex-inner {
   -ms-flex: 1 0 220px;
   flex: 1 0 220px;
 }
-.flex-outer li p {
+.nps-flex-outer li p {
   margin: 0;
 }
-.flex-outer li input:not([type='checkbox']),
-.flex-outer li textarea {
+.nps-flex-outer li input:not([type='checkbox']),
+.nps-flex-outer li textarea {
   color: black;
   padding: 15px;
   border: none;
 }
-.flex-outer li button {
+.nps-flex-outer li button {
   margin-left: auto;
   padding: 8px 16px;
   border: none;
@@ -71,20 +71,24 @@
   letter-spacing: .09em;
   border-radius: 2px;
 }
-.flex-outer li button:hover {
-  opacity: .8;
+.nps-flex-outer li button {
+  outline: none;
 }
-.flex-inner li {
+.nps-flex-outer li button:hover {
+  opacity: .8;
+  outline: none;
+}
+.nps-flex-inner li {
   width: 100px;
 }
-.flex-radio label {
+.nps-flex-radio label {
   float: left;
   padding: 0 1em;
   text-align: center;
   margin-left: 5px;
   margin-right: 5px;
 }
-.flex-radio input {
+.nps-flex-radio input {
   width: 15px;
   height: 15px;
   margin-left: 3px;

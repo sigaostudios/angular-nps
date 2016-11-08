@@ -1,10 +1,10 @@
 
-(function () {
+(function() {
     angular.module('angular-nps')
-        .directive('npsForm', npsDirective)
-        .controller('npsController', npsController);
+        .directive('npsForm', NpsDirective)
+        .controller('npsController', NpsController);
 
-    function npsDirective() {
+    function NpsDirective() {
         return {
             controller: "npsController as vm",
             restrict: 'E',
@@ -12,24 +12,25 @@
         };
     }
 
-    npsController.$inject = ['$scope', '$element', '$attrs', '$npsapi'];
+    NpsController.$inject = ['$scope', '$element', '$attrs', '$npsapi'];
 
-    function npsController($scope, $element, $attrs, $npsapi) {
+    function NpsController($scope, $element, $attrs, $npsapi) {
 
-        //place data-config="" in the tag to pass data into this controller
-        //use $attrs.config to use passed attributes
         var vm = {
             style: {
-                background: $attrs.backgroundcolor,
-                buttonColor: $attrs.buttoncolor,              
+                backGround: $attrs.backgroundcolor,
+                buttonColor: $attrs.buttoncolor,
+                buttonTextColor: $attrs.buttontextcolor
             },
+            userName: $attrs.username || null,
+            GA: $attrs.ga || false,
             showRating: true,
             showComments: false,
             showTest: false,
             submit: submit,
             npsRating: null
         }
- 
+
         Activate();
 
         return vm;
@@ -39,14 +40,18 @@
         }
 
         function submit() {
+            if (vm.npsRating) {
+                var data = {
+                    UserName: vm.userName,
+                    score: vm.npsRating
+                };
+     
+                $npsapi.saveScore(data);
 
-            if(vm.npsRating){
-                $npsapi.saveScore(vm.npsRating);
-                $npsapi.saveScoreToGA(vm.npsRating);
-            }        
+                if (vm.GA) {         
+                    $npsapi.saveScoreToGA(data);
+                }
+            }
         }
     }
-
-
-
 })();
