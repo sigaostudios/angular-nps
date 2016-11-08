@@ -15,7 +15,7 @@
     NpsController.$inject = ['$scope', '$element', '$attrs', '$npsapi'];
 
     function NpsController($scope, $element, $attrs, $npsapi) {
-
+       
         var vm = {
             style: {
                 backGround: $attrs.backgroundcolor,
@@ -28,7 +28,8 @@
             showComments: false,
             showTest: false,
             submit: submit,
-            npsRating: null
+            npsRating: null,
+            externalSubmit: $attrs.externalsubmit || false
         }
 
         Activate();
@@ -36,6 +37,9 @@
         return vm;
 
         function Activate() {
+
+            //create bridge to parent scope
+            $scope.$parent.child = vm;          
             console.log('Activated');
         }
 
@@ -45,10 +49,10 @@
                     UserName: vm.userName,
                     score: vm.npsRating
                 };
-     
+
                 $npsapi.saveScore(data);
 
-                if (vm.GA) {         
+                if (vm.GA == 'true') {
                     $npsapi.saveScoreToGA(data);
                 }
             }

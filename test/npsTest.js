@@ -3,11 +3,19 @@
     angular.module('npsTest', ['angular-nps'])
         .controller('Test', Test);
 
-    function Test() {
+    function Test($scope) {
         var vm = {
-            foo: 'bar'
+            foo: 'bar',
+            submit: submit
         };
+       $scope.child ={}; 
 
+    
         return vm;
+
+       function submit(){
+           $scope.child.submit();
+       }
+
     }
 })();
