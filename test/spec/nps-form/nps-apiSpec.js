@@ -2,6 +2,8 @@ describe('$npsapi', function () {
     var $httpBackend,
         $service,
         $rootScope,
+        gaSpy,
+        sinonAsert,
         scoreRequestHandler,
         result;
 
@@ -11,6 +13,9 @@ describe('$npsapi', function () {
         $service = _$npsapi_;
         $rootScope = _$rootScope_;
         $httpBackend = _$httpBackend_;
+        window.ga = sinon.spy();        
+         
+        sinonAssert = sinon.assert;
 
         testRequestHandler = $httpBackend.when('GET', '/sigaoapi/nps')
             .respond('Hello World!');
@@ -19,11 +24,10 @@ describe('$npsapi', function () {
     afterEach(function () {
         $httpBackend.verifyNoOutstandingExpectation();
         $httpBackend.verifyNoOutstandingRequest();
+        
     });
 
     it("should have a test function that returns hello world", function (done) {
-        console.log("running test");
-
         $service.test()
             .then(function (data) {
                 expect(data).toBe("Hello World!");
@@ -77,6 +81,18 @@ describe('$npsapi', function () {
 
         $httpBackend.flush();
         done();
+    });
+
+    it("should have a function to save to Google Analytics.", function () {
+        $service.saveScoreToGA({
+            score: 5,
+            UserName: "Test"            
+        });
+
+        sinonAssert.called(window.ga);
+        expect(window.ga.args[0][0]).toBe('send');
+        expect(window.ga.args[0][1]).toBe('user');
+        expect(window.ga.args[0][2]['NPS SigaoStudios']).toBe(5);
     });
 
 });
