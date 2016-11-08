@@ -72,13 +72,13 @@
                 buttonTextColor: $attrs.buttontextcolor
             },
             userName: $attrs.username || null,
-            GA: $attrs.ga || false,
+            GA: ($attrs.ga == 'true'),
             showRating: true,
             showComments: false,
             showTest: false,
             submit: submit,
             npsRating: null,
-            externalSubmit: $attrs.externalsubmit || false
+            externalSubmit: ($attrs.externalsubmit == 'true')
         }
 
         Activate();
@@ -101,7 +101,7 @@
 
                 $npsapi.saveScore(data);
 
-                if (vm.GA == 'true') {
+                if (vm.GA) {
                     $npsapi.saveScoreToGA(data);
                 }
             }
