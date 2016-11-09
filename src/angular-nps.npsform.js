@@ -8,6 +8,7 @@
         return {
             controller: "npsController as vm",
             restrict: 'E',
+            scope: true,
             templateUrl: 'npsForm.html'
         };
     }
@@ -23,19 +24,26 @@
                 buttonTextColor: $attrs.buttontextcolor
             },
             userName: $attrs.username || null,
-            GA: $attrs.ga || false,
+            GA: ($attrs.ga == 'true'),
             showRating: true,
             showComments: false,
             showTest: false,
             submit: submit,
-            npsRating: null
-        }
+            npsRating: null,
+            externalSubmit: ($attrs.externalsubmit == 'true')
+        };
 
         Activate();
 
         return vm;
 
         function Activate() {
+
+            //create bridge to parent scope
+            if (vm.externalSubmit) {
+                $scope.$parent.child = vm;
+            }
+
             console.log('Activated');
         }
 
@@ -45,10 +53,10 @@
                     UserName: vm.userName,
                     score: vm.npsRating
                 };
-     
+
                 $npsapi.saveScore(data);
 
-                if (vm.GA) {         
+                if (vm.GA) {
                     $npsapi.saveScoreToGA(data);
                 }
             }

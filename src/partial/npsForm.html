@@ -60,7 +60,7 @@
             <textarea rows="6" id="message" placeholder="Enter your comments here"></textarea>
         </li>
 
-        <li>
+        <li ng-hide="vm.externalSubmit">
             <button type="submit" ng-click="vm.submit()" ng-style="{'background': vm.style.buttonColor, 'color': vm.style.buttonTextColor}">Submit</button>
         </li>
     </ul>

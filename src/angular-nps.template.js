@@ -68,7 +68,7 @@ module.run(['$templateCache', function($templateCache) {
     '            <textarea rows="6" id="message" placeholder="Enter your comments here"></textarea>\n' +
     '        </li>\n' +
     '\n' +
-    '        <li>\n' +
+    '        <li ng-hide="vm.externalSubmit">\n' +
     '            <button type="submit" ng-click="vm.submit()" ng-style="{\'background\': vm.style.buttonColor, \'color\': vm.style.buttonTextColor}">Submit</button>\n' +
     '        </li>\n' +
     '    </ul>\n' +
