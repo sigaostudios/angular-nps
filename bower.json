@@ -2,13 +2,17 @@
   "name": "angular-nps",
   "homepage": "https://github.com/sigaostudios/angular-nps",
   "description": "Angular Net Promoter Score feedback form directive",
-  "main": "dist/js/angular-nps.min.js",
+  "version": "0.0.1",
+  "main": [
+    "dist/js/angular-nps.min.js",
+    "dist/js/angular-nps.less"
+  ],
   "authors": [
     "Sigao Studios",
     "LLC."
   ],
   "license": "MIT",
-  "private": true,
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
