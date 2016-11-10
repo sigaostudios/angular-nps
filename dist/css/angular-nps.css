@@ -1,6 +1,6 @@
 .nps-flex-outer {
   padding: 40px 20px 20px;
-  font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+  font: normal 18px/1.5 'Open Sans', sans-serif;
   background: #3AAFAB;
   color: #fff;
   max-width: 800px;
@@ -16,6 +16,7 @@
   display: flex;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-align-items: center;
   -ms-flex-pack: center;
   justify-content: center;
   /* You can set flex-wrap and flex-direction individually */
@@ -92,4 +93,31 @@
   width: 15px;
   height: 15px;
   margin-left: 3px;
+}
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .nps-flex-outer {
+    padding: 10px 10px 10px;
+    font: normal 14px/1.5 'Open Sans', sans-serif;
+  }
+  .nps-flex-outer div {
+    margin-top: 5px;
+    -ms-flex: 1 0 100%;
+    flex: 1 0 100%;
+  }
+  .nps-flex-radio label {
+    padding: 0px 0px;
+    width: 10%;
+    margin: 20px 0 0 0;
+  }
+  .nps-flex-radio input {
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
+  }
+  .nps-flex-outer li label {
+    padding: 0px 0px;
+    font-weight: 300;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
 }
