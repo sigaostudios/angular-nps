@@ -4,6 +4,8 @@
     angular.module('angular-nps')
         .factory('$npsapi', $NpsApi);
 
+ $NpsApi.$inject = ['$http', '$q'];
+
     function $NpsApi($http, $q) {
         var api = {
             saveScore: saveScore,
