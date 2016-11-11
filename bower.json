@@ -4,7 +4,7 @@
   "description": "Angular Net Promoter System feedback form directive",
   "version": "0.1.1",
   "main": [
-    "dist/js/angular-nps.min.js",
+    "dist/js/angular-nps.js",
     "dist/css/angular-nps.css"
   ],
   "authors": [
