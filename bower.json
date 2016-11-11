@@ -8,8 +8,7 @@
     "dist/css/angular-nps.css"
   ],
   "authors": [
-    "Sigao Studios",
-    "LLC."
+    "Sigao Studios LLC."  
   ],
   "license": "MIT",
   "private": false,
