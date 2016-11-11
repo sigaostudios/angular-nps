@@ -2,7 +2,7 @@
   "name": "angular-nps",
   "homepage": "https://github.com/sigaostudios/angular-nps",
   "description": "Angular Net Promoter System feedback form directive",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "main": [
     "dist/js/angular-nps.js",
     "dist/css/angular-nps.css"
