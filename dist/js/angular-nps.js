@@ -70,7 +70,7 @@
 
         var vm = {
             style: {
-                backGround: $attrs.backgroundcolor,
+                background: $attrs.backgroundcolor,
                 buttonColor: $attrs.buttoncolor,
                 buttonTextColor: $attrs.buttontextcolor
             },
