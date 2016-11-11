@@ -1,5 +1,5 @@
 # angular-nps
-Angular Net Promoter System &reg; feedback form
+Angular Net Promoter System&reg; feedback form
 
 ## Synopsis
 Angular NPS provides an easy-to-use NPS form for use on your site. 
@@ -28,7 +28,7 @@ Angular-NPS was written for use in [AgileKit.IO](http://www.agilekit.io/) as a t
 Angular-NPS can be installed using Bower:
 
 ```
-bower install angular-nps
+bower install angular-nps --save
 ```
 
 You will then need to reference the angular-nps.js and angular-nps.css files in your html.
