@@ -18,7 +18,7 @@ describe('Unit testing nps form', function() {
     it('Contains the Net Promote Score form', function(){
         var element = $compile("<nps-form></nps-form>")($rootScope);
         $rootScope.$digest();
-        expect(element.html()).toContain(' <div name="rating" class="flex-radio">');        
+        expect(element.html()).toContain(' <div name="rating" class="nps-flex-radio">');        
     });
 
     it('Contains a submit button', function() {
