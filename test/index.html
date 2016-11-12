@@ -7,14 +7,18 @@
 </head>
 
 <body ng-controller="Test as vm">
-    
+
     <h1>Angular NPS Test Harness</h1>
     <button ng-click="vm.submit2()">TEST SUBMIT</button>
-    <nps-form externalsubmit="false" ga="true" username="Bob" backGroundColor="#005093" buttonColor="#88cb34" buttonTextColor=""></nps-form>
+    <h3>External Submit = true</h3>
+    <div style="margin-bottom:30px;">
+        <nps-form externalsubmit="true" ga="true" username="Bob" backGroundColor="#005093" buttonColor="#88cb34" buttonTextColor=""></nps-form>
+    </div>
+    <h3>External Submit = false</h3>
+    <div style="margin-bottom:30px;">
 
-    <nps-float></nps-float>
-
-
+        <nps-form externalsubmit="false" ga="true" username="Bob" backGroundColor="#005093" buttonColor="#88cb34" buttonTextColor=""></nps-form>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="../dist/js/angular-nps.min.js"></script>
     <script src="./npsTest.js"></script>

@@ -1,5 +1,5 @@
 .nps-flex-outer {
-  padding: 40px 20px 20px;
+  padding: 20px 20px 20px;
   font: normal 18px/1.5 'Open Sans', sans-serif;
   background: #3AAFAB;
   color: #fff;
@@ -30,9 +30,6 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-.nps-flex-outer > li:not(:last-child) {
-  margin-bottom: 20px;
-}
 .nps-flex-outer li label,
 .nps-flex-outer li p {
   padding: 8px;
@@ -47,7 +44,7 @@
   max-width: 220px;
 }
 .nps-flex-outer div {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 .nps-flex-inner {
   -ms-flex: 1 0 220px;
@@ -73,6 +70,7 @@
   border-radius: 2px;
 }
 .nps-flex-outer li button {
+  margin-top: 10px;
   outline: none;
 }
 .nps-flex-outer li button:hover {
