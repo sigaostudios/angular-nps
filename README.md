@@ -11,14 +11,14 @@ Angular NPS provides an easy-to-use NPS form for use on your site.
 </div>
 ```
 ### Attributes:
-| Attribute       | Description                            |
-|-----------------|----------------------------------------|
-| externalsubmit  | Submits a score via ajax POST          |
-| ga              | Submits a score via GoogleAnalytics    |
-| username        | Username of the user submitting score  |
-| backgroundColor | Background color of the feedback form  |
-| buttonColor     | Color of the submit button             |
-| buttonTextColor | Color of the text on the submit button |
+| Attribute       | Description                                                                                             |
+|-----------------|---------------------------------------------------------------------------------------------------------|
+| externalsubmit  | Removes submit button from form and grants the parent scope access to the directive's submit functions  |
+| ga              | Submits a score via GoogleAnalytics                                                                     |
+| username        | Username of the user submitting score                                                                   |
+| backgroundColor | Background color of the feedback form                                                                   |
+| buttonColor     | Color of the submit button                                                                              |
+| buttonTextColor | Color of the text on the submit button                                                                  |
 
 ## Motivation
 Angular-NPS was written for use in [AgileKit.IO](http://www.agilekit.io/) as a tool to gather feedback from our users.
