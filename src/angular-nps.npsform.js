@@ -1,65 +1,55 @@
-
-(function() {
+(function () {
     angular.module('angular-nps')
-        .directive('npsForm', NpsDirective)
-        .controller('npsController', NpsController);
+        .directive('npsForm', [NpsDirective]);
 
     function NpsDirective() {
         return {
-            controller: "npsController as vm",
             restrict: 'E',
-            scope: true,
-            templateUrl: 'npsForm.html'
+            scope: {
+                npsRating: '=rating',
+                submit: '&',
+                backgroundColor: '@backgroundcolor',
+                buttonColor: '@buttoncolor',
+                buttonTextColor: '@buttontextcolor',
+                username: '@username',
+                externalSubmit: '@externalsubmit'
+            },
+            transclude: 'true',
+            templateUrl: 'npsForm.html',
+            controllerAs: "vm",
+            controller: NpsController
         };
     }
 
-    NpsController.$inject = ['$scope', '$element', '$attrs', '$npsapi'];
-
-    function NpsController($scope, $element, $attrs, $npsapi) {
-
+    NpsController.$inject = ['$scope'];
+    function NpsController($scope) {
         var vm = {
             style: {
-                backGround: $attrs.backgroundcolor,
-                buttonColor: $attrs.buttoncolor,
-                buttonTextColor: $attrs.buttontextcolor
+                backGround: $scope.backgroundColor,
+                buttonColor: $scope.buttonColor,
+                buttonTextColor: $scope.buttonTextColor
             },
-            userName: $attrs.username || null,
-            GA: ($attrs.ga == 'true'),
+            userName: $scope.username || null,
+            GA: ($scope.ga == 'true'),
             showRating: true,
             showComments: false,
             showTest: false,
-            submit: submit,
-            npsRating: null,
-            externalSubmit: ($attrs.externalsubmit == 'true')
+            submit: $scope.submit,
+            npsRating: $scope.npsRating,            
+            updateScope: updateScope,
+            externalSubmit: ($scope.externalSubmit == 'true'),
+            scope: $scope
         };
 
         Activate();
-
         return vm;
 
         function Activate() {
-
-            //create bridge to parent scope
-            if (vm.externalSubmit) {
-                $scope.$parent.child = vm;
-            }
-
-            console.log('Activated');
+            console.log($scope);            
         }
 
-        function submit() {
-            if (vm.npsRating) {
-                var data = {
-                    UserName: vm.userName,
-                    score: vm.npsRating
-                };
-
-                $npsapi.saveScore(data);
-
-                if (vm.GA) {
-                    $npsapi.saveScoreToGA(data);
-                }
-            }
+        function updateScope(){
+            $scope.$digest();
         }
     }
 })();

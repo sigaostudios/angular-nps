@@ -23,8 +23,15 @@ gulp.task('less', function () {
         .pipe(gulp.dest(path.css));
 });
 
-gulp.task('js',['templates'], function () {
-    gulp.src(path.src + '*.js')
+gulp.task('js', ['templates'], function () {
+    gulp.src([
+            path.src + 'angular-nps.module.js',
+            path.src + 'angular-nps.template.js',            
+            path.src + 'angular-nps.nps-api.js',
+            path.src + 'angular-nps.npsform.js',
+        ], {
+            base: path.src
+        })
         .pipe(plugins.concat('angular-nps.js'))
         .pipe(plugins.minify({
             ext: {
@@ -45,7 +52,7 @@ gulp.task('templates', function () {
     return gulp.src("./src/partial/*.html")
         .pipe(plugins.ngHtml2js({
             moduleName: "angular-nps"
-           
+
         }))
         .pipe(plugins.concat("angular-nps.template.js"))
         .pipe(gulp.dest("./src"));

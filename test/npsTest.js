@@ -6,15 +6,15 @@
     function Test($scope) {
         var vm = {
             foo: 'bar',
-            submit2: submit2
+            submit2: submit2,
+            npsRating: {rating: 3}
         };
-       $scope.child ={}; 
-
     
         return vm;
 
        function submit2(){
-           $scope.child.submit();
+           alert(vm.npsRating.rating);
+           vm.npsRating.rating = 3;
        }
 
     }

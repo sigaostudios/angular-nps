@@ -10,18 +10,62 @@
 
     <h1>Angular NPS Test Harness</h1>
     <button ng-click="vm.submit2()">TEST SUBMIT</button>
+    <input ng-model="vm.npsRating.rating" />
     <h3>External Submit = true</h3>
     <div style="margin-bottom:30px;">
-        <nps-form externalsubmit="true" ga="true" username="Bob" backGroundColor="#005093" buttonColor="#88cb34" buttonTextColor=""></nps-form>
+        <nps-form externalsubmit="true" rating='vm.npsRating' ga="false" username="Bob" backGroundColor="#005093" buttonColor="#88cb34" buttonTextColor=""></nps-form>
     </div>
     <h3>External Submit = false</h3>
     <div style="margin-bottom:30px;">
 
-        <nps-form externalsubmit="false" ga="true" username="Bob" backGroundColor="#005093" buttonColor="#88cb34" buttonTextColor=""></nps-form>
+        <nps-form externalsubmit="false" rating='vm.npsRating' ga="false" username="Bob" backgroundcolor="#005093" buttonColor="#88cb34" buttonTextColor=""></nps-form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="../dist/js/angular-nps.min.js"></script>
+    <script src="../dist/js/angular-nps.js"></script>
     <script src="./npsTest.js"></script>
 </body>
 
 </html>
+
+<!--
+        NpsController.$inject = ['$scope', '$element', '$attrs', '$npsapi'];
+
+    function NpsController($scope, $element, $attrs, $npsapi) {
+
+        var vm = {
+            style: {
+                backGround: $attrs.backgroundcolor,
+                buttonColor: $attrs.buttoncolor,
+                buttonTextColor: $attrs.buttontextcolor
+            },
+            userName: $attrs.username || null,
+            GA: ($attrs.ga == 'true'),
+            showRating: true,
+            showComments: false,
+            showTest: false,
+            submit: submit,
+            npsRating: $scope.npsRating2,
+            externalSubmit: ($attrs.externalsubmit == 'true')
+        };
+
+        Activate();
+
+        return vm;
+
+        function Activate() {}
+
+        function submit() {
+            if (vm.npsRating) {
+                var data = {
+                    UserName: vm.userName,
+                    score: vm.npsRating
+                };
+
+                $npsapi.saveScore(data);
+
+                if (vm.GA) {
+                    $npsapi.saveScoreToGA(data);
+                }
+            }
+        }
+    }-->
