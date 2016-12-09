@@ -35,8 +35,7 @@
             showComments: false,
             showTest: false,
             submit: $scope.submit,
-            npsRating: $scope.npsRating,            
-            updateScope: updateScope,
+            npsRating: $scope.npsRating, 
             externalSubmit: ($scope.externalSubmit == 'true'),
             scope: $scope
         };
@@ -44,12 +43,7 @@
         Activate();
         return vm;
 
-        function Activate() {
-            console.log($scope);            
-        }
-
-        function updateScope(){
-            $scope.$digest();
+        function Activate() {     
         }
     }
 })();

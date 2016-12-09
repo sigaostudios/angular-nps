@@ -150,8 +150,7 @@ module.run(['$templateCache', function($templateCache) {
             showComments: false,
             showTest: false,
             submit: $scope.submit,
-            npsRating: $scope.npsRating,            
-            updateScope: updateScope,
+            npsRating: $scope.npsRating, 
             externalSubmit: ($scope.externalSubmit == 'true'),
             scope: $scope
         };
@@ -159,12 +158,7 @@ module.run(['$templateCache', function($templateCache) {
         Activate();
         return vm;
 
-        function Activate() {
-            console.log($scope);            
-        }
-
-        function updateScope(){
-            $scope.$digest();
+        function Activate() {     
         }
     }
 })();
