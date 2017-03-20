@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sigaostudiosllc/angular-nps.git"
+    "url": "git+https://github.com/sigaostudios/angular-nps.git"
   },
   "author": "Sigao Studios, LLC.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sigaostudiosllc/angular-nps/issues"
+    "url": "https://github.com/sigaostudios/angular-nps/issues"
   },
-  "homepage": "https://github.com/sigaostudiosllc/angular-nps#readme",
+  "homepage": "https://github.com/sigaostudios/angular-nps#readme",
   "devDependencies": {
     "angular": "^1.5.8",
     "angular-mocks": "^1.5.8",
